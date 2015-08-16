@@ -14,11 +14,12 @@ Library
   HS-Source-Dirs:       src
   GHC-Options:          -Wall
   Exposed-Modules:      Data.Matroid
-  Other-Modules:        Data.Matroid.Internal
   Build-Depends:        base >= 4.6 && < 5
                       , transformers
                       , mtl
+                      , containers
                       , sets
+                      , commutative
 
 Test-Suite spec
   Type:                 exitcode-stdio-1.0
