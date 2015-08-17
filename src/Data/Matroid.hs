@@ -12,6 +12,7 @@ import Data.Set.Ordered.Many.With (SetsWith (..))
 import qualified Data.Set.Ordered.Many.With as W
 import qualified Data.Map as Map
 
+import Data.Monoid
 import Data.Commutative
 import Data.Foldable as Fold
 import Data.Function.AlmostFix
@@ -85,6 +86,9 @@ grow (Matroid _ ds) sup bs' = Matroid bs' $ ds `union` sup
 
 -- | Dummy class to document that @<~>@ should /increase/ strictly positive.
 class Commutative c => CommutativePositive c where
+
+instance Num a => CommutativePositive (Sum a) where
+instance Num a => CommutativePositive (Product a) where
 
 takeMaximum :: ( Foldable c
                , Eq (c a)
